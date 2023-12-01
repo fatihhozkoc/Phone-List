@@ -7,6 +7,7 @@ internal class Program
     static PhoneListManager phoneListManager = new PhoneListManager();
     private static void Main(string[] args)
     {
+        phoneListManager.InitiliazeContact();
         while (true)
         {
             //Console.Clear();
