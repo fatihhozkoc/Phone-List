@@ -10,28 +10,13 @@ using System.Threading.Tasks;
 namespace PhoneList.Manager
 {
     public class PhoneListManager : IContactService
-    {
+    { 
+        private static List<Person> contacts = new List<Person>();
 
-        // Başlangıç olarak 5 kişinin eklenmesi 
-        public void InitiliazeContact()
+        public void Add(Person person)
         {
-            List<Person> initialContacts = new List<Person>
-            {
-                new Person("Fatih", "Özkoç", "05001112233"),
-                new Person("Betül", "Tekçe", "05001112234"),
-                new Person("Mehmet", "Çelik", "05001112235"),
-                new Person("Fatma", "Demir", "05001112236"),
-                new Person("Ali", "Kaya", "05001112237")
-            };
-
-            // Her bir kişiyi rehber listesine ekle
-            foreach (var person in initialContacts)
-            {
-                contacts.Add(person);
-            }
+            contacts.Add(person);
         }
-
-        private List<Person> contacts = new List<Person>();
 
         // İsme Göre Arama Yapılmasını Sağlayan Metod
         private void SearchByName()
@@ -268,7 +253,7 @@ namespace PhoneList.Manager
             int sortChoice = Utilities.Utilities.ShowMenu(new string[] { "A-Z'ye göre sırala", "Z-A'ya göre sırala" });
 
             // Rehberdeki tüm kişileri al
-            var allContacts = this.contacts;
+            var allContacts = contacts;
 
             // Seçilen sıralama türüne göre listeyi sırala
             if (sortChoice == 1)

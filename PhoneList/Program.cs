@@ -5,9 +5,15 @@ using PhoneList.Utilities;
 internal class Program
 {
     static PhoneListManager phoneListManager = new PhoneListManager();
+    //static InitiliazeContact initializer = new InitiliazeContact();
+
     private static void Main(string[] args)
     {
-        phoneListManager.InitiliazeContact();
+        // Başlangıç olarak 5 kişinin eklenmesi 
+        InitiliazeContact initializer = new InitiliazeContact();
+        initializer.Initiliaze();
+
+        // Menünün yazdırılması ve işlemlerin yapılması
         while (true)
         {
             //Console.Clear();
